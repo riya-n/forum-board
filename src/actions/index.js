@@ -1,11 +1,14 @@
 /* eslint-disable no-plusplus */
 let nextCommentId = 0;
 
-export const addComment = (comment) => ({
-  type: 'ADD_COMMENT',
-  id: nextCommentId++,
-  comment,
-});
+export const addComment = (comment) => {
+  console.log('now in here', comment);
+  return ({
+    type: 'ADD_COMMENT',
+    id: nextCommentId++,
+    comment,
+  });
+};
 
 export const addReply = (commentId, comment) => ({
   type: 'ADD_REPLY',

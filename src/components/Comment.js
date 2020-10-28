@@ -11,6 +11,7 @@ const Comment = ({ comment }) => {
   const { commentId, replyId, id } = comment;
   const { name, post, replies } = comment.comment;
   const [addingReply, setAddingReply] = useState(false);
+  console.log('comment', comment);
 
   return (
     <div>
@@ -25,8 +26,7 @@ const Comment = ({ comment }) => {
       {
         replyId ? '' : (
           <ReplyButton onClick={() => setAddingReply(!addingReply)}>
-            <span role="img" aria-labelledby="reply">💬</span>
-            Reply
+            <span role="img" aria-labelledby="reply">💬  Reply</span>
           </ReplyButton>
         )
       }

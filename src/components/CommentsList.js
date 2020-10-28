@@ -6,8 +6,7 @@ import Comment from './Comment';
 import { CommentCard } from '../styles';
 
 const CommentsList = ({ comments }) => {
-  console.log('in heretoooo');
-  console.log(comments);
+  console.log('in comments liiist', comments);
 
   return (
     comments.map((comment) => (

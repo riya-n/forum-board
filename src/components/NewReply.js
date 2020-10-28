@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
@@ -7,7 +8,8 @@ import {
 } from '../styles';
 import { addReply, addReplyToReply } from '../actions';
 
-const NewReply = ({ ids, setAddingReply, replyTo }) => {
+const NewReply = ({ ids, setAddingReply, replyTo, addReply, addReplyToReply }) => {
+  console.log('ids', ids);
   const { id, commentId } = ids;
   const [name, setName] = useState('');
   const [post, setPost] = useState(`@${replyTo}`);
@@ -17,10 +19,13 @@ const NewReply = ({ ids, setAddingReply, replyTo }) => {
       onSubmit={(e) => {
         e.preventDefault();
         setAddingReply(false);
-        if (commentId) {
-          addReplyToReply(commentId, id, { name, post });
-        } else {
+        console.log('omsbmit sommentid', commentId);
+        if (commentId === undefined) {
+          console.log('adding replu');
           addReply(id, { name, post, replies: [] });
+        } else {
+          console.log('adding reply to reply');
+          addReplyToReply(commentId, id, { name, post });
         }
         setName('');
         setPost('');

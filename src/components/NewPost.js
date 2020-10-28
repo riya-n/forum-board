@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
@@ -6,7 +8,7 @@ import {
 } from '../styles';
 import { addComment } from '../actions';
 
-const NewPost = () => {
+const NewPost = ({ addComment }) => {
   const [name, setName] = useState('');
   const [post, setPost] = useState('');
 
